@@ -56,7 +56,7 @@ export const b3 = () => {
  * 例: ["tuna"] => OK / ["fish"] => NG
  */
 export const a1 = () => {
-  return z.xxxx('tuna');
+  return z.xxxx();
 };
 
 // ==== <<👹鬼👹>> ==== //
