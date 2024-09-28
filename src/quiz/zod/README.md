@@ -61,7 +61,7 @@ npm run test zod/level1  # levelのあとの文字は進行に合わせて変更
 // index.ts
 import z from 'zod';
 /**
- * =====解説=====
+ * ====解説====
  *
  * ====問題====
  *
@@ -102,4 +102,33 @@ export const a4 = () => {
   return z.boolean();
 };
 
+// index.test.ts
+import { describe, expect, test } from 'vitest';
+import { b1, b2, b3, example, } from '.';
+
+const title = "Zod Level 3: バリデーションつきのスキーマをつくってみよう！"
+
+describe(`${title}<<✅例題✅>>`, () => {
+  test('例題', () => {
+    const schema = example();
+  });
+})
+
+describe(`${title}<<👌基礎👌>>`, () => {
+  test('Q, ', () => {
+    const schema = example();
+  });
+})
+
+describe(`${title}<<🤯発展🤯>>`, () => {
+  test('Q, ', () => {
+    const schema = example();
+  });
+})
+
+describe(`${title}<<👹鬼👹>>`, () => {
+  test('Q, ', () => {
+    const schema = example();
+  });
+})
 ```

@@ -13,25 +13,25 @@ describe(`${title}<<✅例題✅>>`, () => {
 
 describe(`${title}<<👌基礎👌>>`, () => {
 
-  test('safeParseを利用して`{ success: true; data: 123 }`を返却しよう', () => {
+  test('Q. safeParseを利用して`{ success: true; data: 123 }`を返却しよう', () => {
     const result = b1();
     expect(result).toStrictEqual({ success: true, data: 123 });
   });
 
-  test('safeParseを利用して`{ success: true; data: true }`を返却しよう', () => {
+  test('Q. safeParseを利用して`{ success: true; data: true }`を返却しよう', () => {
     const result = b2();
     expect(result).toStrictEqual({ success: true, data: true });
   });
 
-  test('safeParseを利用して`{ success: false; error: ZodError }`を返却しよう', () => {
+  test('Q. safeParseを利用して`{ success: false; error: ZodError }`を返却しよう', () => {
     const result = b3();
     expect(result.success).toBeFalsy()
     expect(result.error instanceof ZodError).toBeTruthy();
   });
 });
 
-describe(`${title}<<🤯応用🤯>>`, () => {
-  test('Zodのエラーメッセージ"Expected string, received array"から逆算してエラーを起こそう', () => {
+describe(`${title}<<🤯発展🤯>>`, () => {
+  test('Q. Zodのエラーメッセージ"Expected string, received array"から逆算してエラーを起こそう', () => {
     const result = a1();
     expect(result.success).toBeFalsy()
     expect(result.error instanceof ZodError).toBeTruthy();

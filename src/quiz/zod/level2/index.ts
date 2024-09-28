@@ -1,6 +1,5 @@
-import z from 'zod';
 /**
- * =====解説=====
+ * ====解説====
  * 作ったスキーマをparseしてみよう！
  *
  * 作成したスキーマ(型定義)をparseすることで、型定義に沿っているかどうかを検証することができます。
@@ -25,12 +24,14 @@ import z from 'zod';
  *
  * ====問題====
  * `Q.`のあとの指示に従って、z.xxxx()の形でスキーマを定義してreturnしてみよう
- * `npm run test zod/level1`ですべてのテストが通ることを確認しよう
+ * `npm run test zod/level2`ですべてのテストが通ることを確認しよう
  *
  * ====ヒント====
  * https://zod.dev/?id=safeparse
  *
  */
+
+import z from 'zod';
 
 // ==== <<✅例題✅>> ==== //
 /**Q. safeParseを利用して、`{ success: true; data: "hello" }`を返却しよう */
@@ -60,7 +61,7 @@ export const b3 = () => {
   return schema.safeParse(xxxx);
 };
 
-// ==== <<🤯応用🤯>> ==== //
+// ==== <<🤯発展🤯>> ==== //
 /**
  * Q. Zodのエラーメッセージ"Expected string, received array"から逆算してエラーを起こそう
  */

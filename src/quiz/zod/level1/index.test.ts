@@ -18,21 +18,21 @@ describe(`${title}<<✅例題✅>>`, () => {
 
 describe(`${title}<<👌基礎👌>>`, () => {
 
-  test('文字列型のスキーマを返却しよう', () => {
+  test('Q. 文字列型のスキーマを返却しよう', () => {
     const schema = b1();
     expect(schema.safeParse(str).success).toBeTruthy();
     expect(schema.safeParse(number).success).toBeFalsy();
     expect(schema.safeParse(bool).success).toBeFalsy();
   });
 
-  test('数値型のスキーマを返却しよう', () => {
+  test('Q. 数値型のスキーマを返却しよう', () => {
     const schema = b2();
     expect(schema.safeParse(str).success).toBeFalsy();
     expect(schema.safeParse(number).success).toBeTruthy();
     expect(schema.safeParse(bool).success).toBeFalsy();
   });
 
-  test('真偽値型のスキーマを返却しよう', () => {
+  test('Q. 真偽値型のスキーマを返却しよう', () => {
     const schema = b3();
     expect(schema.safeParse(str).success).toBeFalsy();
     expect(schema.safeParse(number).success).toBeFalsy();
@@ -40,8 +40,8 @@ describe(`${title}<<👌基礎👌>>`, () => {
   });
 });
 
-describe(`${title}<<🤯応用🤯>>`, () => {
-  test('文字列"tuna"のみ入るスキーマを返却しよう', () => {
+describe(`${title}<<🤯発展🤯>>`, () => {
+  test('Q. 文字列"tuna"のみ入るスキーマを返却しよう', () => {
     const schema = a1();
     expect(schema.safeParse('tuna').success).toBeTruthy();
     expect(schema.safeParse('fish').success).toBeFalsy();
@@ -49,14 +49,14 @@ describe(`${title}<<🤯応用🤯>>`, () => {
 });
 
 describe(`${title}<<👹鬼👹>>`, () => {
-  test('文字列配列のスキーマを返却しよう', () => {
+  test('Q. 文字列配列のスキーマを返却しよう', () => {
     const schema = o1();
     expect(schema.safeParse([str]).success).toBeTruthy();
     expect(schema.safeParse([number]).success).toBeFalsy();
     expect(schema.safeParse([bool]).success).toBeFalsy();
   });
 
-  test('数値配列のスキーマを返却しよう', () => {
+  test('Q. 数値配列のスキーマを返却しよう', () => {
     const schema = o2();
     expect(schema.safeParse([str]).success).toBeFalsy();
     expect(schema.safeParse([number]).success).toBeTruthy();
