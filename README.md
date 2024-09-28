@@ -8,4 +8,4 @@ npm ci
 
 ## コンテンツ
 
-- [Zod](./src/training/zod/README.md)
+- [Zod](./src/quiz/zod/README.md)
