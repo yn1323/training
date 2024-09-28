@@ -59,7 +59,6 @@ npm run test zod/level1  # levelのあとの文字は進行に合わせて変更
 
 ``` ts
 // index.ts
-import z from 'zod';
 /**
  * ====解説====
  *
@@ -68,6 +67,8 @@ import z from 'zod';
  * ====ヒント====
  * https://zod.dev/....
  */
+
+import z from 'zod';
 
 /**
  * Q. string型のスキーマを定義してみよう
@@ -80,17 +81,17 @@ export const example = () => {
 // ==== <<👌基礎👌>> ==== //
 /**Q. 文字列型のスキーマを返却しよう */
 export const b1 = () => {
-  return z.string();
+  return z.xxxx();
 };
 
 /** Q. 数値型のスキーマを返却しよう */
 export const b2 = () => {
-  return z.number();
+  return z.xxxx();
 };
 
 /** Q. 真偽値型のスキーマを返却しよう */
 export const b3 = () => {
-  return z.boolean();
+  return z.xxxx();
 };
 
 // ==== <<🤯応用🤯>> ==== //
@@ -98,8 +99,17 @@ export const b3 = () => {
  * Q. 文字列のみ入る配列のスキーマを返却しよう
  * 例: ['a', 'b', 'c'] => OK / [1, 2, 3] => NG
  */
-export const a4 = () => {
+export const a1 = () => {
   return z.boolean();
+};
+
+// ==== <<👹鬼👹>> ==== //
+/**
+ * Q. 文字列配列のスキーマを返却しよう
+ * 例: ['a', 'b', 'c'] => OK / [1, 2, 3] => NG
+ */
+export const o1 = () => {
+  return z.xxxx();
 };
 
 // index.test.ts
