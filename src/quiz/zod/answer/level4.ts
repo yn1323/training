@@ -50,7 +50,15 @@ export const b1 = () => {
       password: z.string(),
       confirm: z.string(),
     })
-    .superRefine(/* ここに書く */);
+    .superRefine((data, ctx) => {
+      if (data.password !== data.confirm) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: 'パスワードが一致しません',
+          path: ['confirm'],
+        });
+      }
+    });
 
   return passwordFormSchema;
 };
@@ -80,7 +88,24 @@ export const b2 = () => {
       value2: z.string(),
       value3: z.string(),
     })
-    .superRefine(/* ここに書く */);
+    .superRefine((data, ctx) => {
+      // [[key, value], ...]の形で重複しているデータのみ抽出
+      const duplicates = Object.entries(data).filter(([_, value]) => {
+        const duplicatesNum = Object.values(data).filter(
+          (v) => v === value,
+        ).length;
+
+        return duplicatesNum > 1;
+      });
+
+      duplicates.forEach(([key]) => {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: '重複しています',
+          path: [key], // 重複しているフィールドのキー名を配列化
+        });
+      });
+    });
 
   return valueFormSchema;
 };
@@ -90,8 +115,18 @@ export const b2 = () => {
  * Q. Exampleと同じ条件のスキーマを関数に切り出して、再利用可能なカスタムバリデーションを作成しよう
  */
 export const a1 = () => {
-  // ↓で切り出した関数を完成させよう
-  const passwordMatch = () => {};
+  const passwordMatch = (
+    data: { password: string; confirm: string },
+    ctx: z.RefinementCtx,
+  ) => {
+    if (data.password !== data.confirm) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: 'パスワードが一致しません',
+        path: ['confirm'],
+      });
+    }
+  };
 
   const passwordFormSchema = z
     .object({

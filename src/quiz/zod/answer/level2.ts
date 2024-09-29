@@ -43,22 +43,22 @@ export const example = () => {
 // ==== <<👌基礎👌>> ==== //
 /**Q. safeParseを利用して`{ success: true; data: 123 }`を返却しよう */
 export const b1 = () => {
-  const schema = z.xxxx();
-  return schema.safeParse(xxxx);
+  const schema = z.number();
+  return schema.safeParse(123);
 };
 
 /**Q. safeParseを利用して`{ success: true; data: true }`を返却しよう */
 export const b2 = () => {
-  const schema = z.xxxx();
-  return schema.safeParse(xxxx);
+  const schema = z.boolean();
+  return schema.safeParse(true);
 };
 
 /**Q. safeParseを利用して`{ success: false; error: ZodError }`を返却しよう
  * ※ZodErrorはzodのエラーオブジェクト（中身は何でもOK）
  */
 export const b3 = () => {
-  const schema = z.xxxx();
-  return schema.safeParse(xxxx);
+  const schema = z.string();
+  return schema.safeParse(123);
 };
 
 // ==== <<🤯発展🤯>> ==== //
@@ -66,6 +66,6 @@ export const b3 = () => {
  * Q. Zodのエラーメッセージ"Expected string, received array"から逆算してschema、safeParseの値を入力しよう
  */
 export const a1 = () => {
-  const schema = z.xxxx();
-  return schema.safeParse(xxxx);
+  const schema = z.string();
+  return schema.safeParse([]);
 };
